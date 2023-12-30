@@ -58,12 +58,12 @@ html, body, #root, main {
 
 /* width */
 .product__test_scrollbar::-webkit-scrollbar {
-  width: 10px;
+  width: 5px;
 }
 
 /* Track */
 .product__test_scrollbar::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: transparent;
 }
 
 /* Handle */
@@ -74,7 +74,7 @@ html, body, #root, main {
 
 /* Handle on hover */
 .product__test_scrollbar::-webkit-scrollbar-thumb:hover {
-  background: #555;
+  background: #a0a0a0;
 }
 
 body {
