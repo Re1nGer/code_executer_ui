@@ -2,6 +2,7 @@ import Layout from "./src/components/Layout.jsx";
 import Question from "./src/pages/Question.jsx";
 import AddQuestion from "./src/pages/AddQuestion.jsx";
 import Landing from "./src/pages/Landing.jsx";
+import Product from "@/pages/Product.jsx";
 
 
 const routes = [
@@ -10,7 +11,11 @@ const routes = [
         children: [
             {
                 path: '/',
-                element: <Landing />
+                element: <Product />
+            },
+            {
+                path: '/',
+                element: <Product />
             },
             {
                 path: '/questions',
