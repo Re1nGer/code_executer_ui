@@ -1,4 +1,4 @@
-import CrossIcon from "@/icons/CrossIcon.svg";
+import CrossIcon from "@/icons/CrossIcon.svg?react";
 
 const FailTestSkeleton = () => {
     return <div
