@@ -3,20 +3,17 @@ import ArrowIcon from '../icons/Arrow.svg?react'
 import ShareIcon from '../icons/ShareIcon.svg?react'
 import BugIcon from '../icons/BugIcon.svg?react'
 import SettingIcon from '../icons/SettingIcon.svg?react'
-import {useRef, useState} from "react";
+import {useState} from "react";
 import EyeIcon from '../icons/EyeIcon.svg?react'
 import InfoIcon from '../icons/InfoIcon.svg?react'
 import { Link } from "react-router-dom";
 import StarIcon from '../icons/StarIcon.svg?react'
-import {Editor} from "@monaco-editor/react";
+import { Editor } from "@monaco-editor/react";
+import ArrowDown from '../icons/ArrowDown.svg?react'
 
 const QuestionPage = () => {
 
-    const [promptW, setPromptW] = useState(600)
-
-    const promptResizer = useRef(null)
-
-    const [solutionW, setSolutionW] = useState(window.innerWidth - 600)
+    const [promptW, setPromptW] = useState(800)
 
     const handleResize = (event) => {
         setPromptW(event.clientX);
@@ -31,7 +28,6 @@ const QuestionPage = () => {
         window.addEventListener('mousemove', handleResize);
         window.addEventListener('mouseup', handleMouseUp);
     };
-
 
     return (
         <section className={'bg-[#02203c] px-[15px] h-screen overflow-hidden'}>
@@ -69,7 +65,7 @@ const QuestionPage = () => {
                             <button className={'px-[15px] py-[10px] transition-colors hover:bg-[#626ee3]'}>Video Explanations</button>
                             <button className={'px-[15px] py-[10px]'}></button>
                         </div>
-                        <div className={'p-[20px] h-[450px] bg-[#001528]'}>
+                        <div className={'p-[20px] max-h-[550px] product__test_scrollbar overflow-x-hidden bg-[#001528]'}>
                             <div className={'flex gap-[20px] text-white mb-[10px]'}>
                                 <div className={'flex items-center gap-[10px] font-bold'}>
                                     <h3>Difficulty:</h3>
@@ -102,9 +98,28 @@ const QuestionPage = () => {
                                     <h3>sequence = [1, 6, -1, 10]</h3>
                                 </pre>
                                 <h3>Sample Output</h3>
-                                <pre className={'bg-[#15314b] px-[15px] py-[20px] text-[14px] rounded-[4px]'}>
-                                    <h3>True</h3>
+                                <pre className={'bg-[#15314b] px-[15px] py-[20px] text-[14px] rounded-[4px] mb-[30px]'}>
+                                    <code className={'language-css'}>True</code>
                                 </pre>
+                                <div className={'flex flex-col gap-[10px] font-bold'}>
+                                    <h1>Hints</h1>
+                                    <pre className={'bg-[#15314b] flex justify-between px-[15px] py-[20px] text-[14px] rounded-[4px]'}>
+                                        Hint 1
+                                        <ArrowDown className={'w-[15px] h-[15px]'} />
+                                    </pre>
+                                    <pre className={'bg-[#15314b] flex justify-between px-[15px] py-[20px] text-[14px] rounded-[4px]'}>
+                                        Hint 2
+                                        <ArrowDown className={'w-[15px] h-[15px]'} />
+                                    </pre>
+                                    <pre className={'bg-[#15314b] flex justify-between px-[15px] py-[20px] text-[14px] rounded-[4px]'}>
+                                        Hint 3
+                                        <ArrowDown className={'w-[15px] h-[15px]'} />
+                                    </pre>
+                                    <pre className={'bg-[#15314b] flex justify-between px-[15px] py-[20px] text-[14px] rounded-[4px]'}>
+                                        Hint 4
+                                        <ArrowDown className={'w-[15px] h-[15px]'} />
+                                    </pre>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -126,7 +141,14 @@ const QuestionPage = () => {
                                 </button>
                             </div>
                         </div>
-                        <div className={'p-[20px] bg-[#001528]'}></div>
+                        <div className={'p-[20px] bg-[#001528] blur-[4px]'}>
+                            <div className={'flex flex-col text-white'}>
+                                <div className={'flex flex-col gap-[1rem]'}>
+                                    <h1 className={'font-bold font-open_sans text-[18px]'}>Test Case 1</h1>
+                                    <Editor height={'90px'} theme={'vs-dark'} defaultValue={'{\n\tarray: [1,2,3,4,5], \n\tsequence:[1,2,3,4,5,6]\n}'} />
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div id={'prompt_vertical_resizer'} onMouseDown={handleMouseDown} className={'w-[15px] h-full bg-transparent cursor-col-resize transition-colors hover:bg-[#626ee3]'}></div>
@@ -135,13 +157,24 @@ const QuestionPage = () => {
                         <div className={'bg-[#15314b] text-white font-bold flex rounded-[4px]'}>
                             <button className={'px-[15px] py-[10px] transition-colors hover:bg-[#626ee3]'}>Your Solutions</button>
                         </div>
-                        <div>
-                            <Editor height={"100%"}
+                        <div style={{ height: 400 + "px" }}>
+                            <Editor height={'100%'}
                                     defaultLanguage={'javascript'}
                                     theme={'vs-dark'}
                             />
                         </div>
-                        <div onMouseDown={handleMouseDown} className={'w-full h-[15px] bg-transparent cursor-col-resize transition-colors hover:bg-[#626ee3]'}></div>
+                        <div className={'w-full h-[15px] bg-transparent cursor-col-resize transition-colors hover:bg-[#626ee3]'}></div>
+                        <div className={'flex justify-between bg-[#15314b] flex-1'}>
+                            <div className={'text-white font-bold flex rounded-[4px]'}>
+                                <button className={'px-[15px] py-[10px] transition-colors hover:bg-[#626ee3]'}>Custom Output</button>
+                                <button className={'px-[15px] py-[10px] transition-colors hover:bg-[#626ee3]'}>Raw Output</button>
+                                <button className={'px-[15px] py-[10px]'}></button>
+                            </div>
+                            <button className={'bg-[#008529] px-[15px] text-[14px] text-white font-open_sans'}>Submit code</button>
+                        </div>
+                        <div className={'p-[20px] bg-[#001528] h-full min-h-[350px]'}>
+                            <h3 className={'text-[#445d6e] flex items-center h-full text-center w-full justify-center font-bold font-open_sans'}>Run Or Submit your code when you're ready</h3>
+                        </div>
                     </div>
                 </div>
             </div>
