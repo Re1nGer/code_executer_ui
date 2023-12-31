@@ -13,16 +13,6 @@ const options = [
     { value: 'java', label: 'Java' },
 ]
 
-/*
-Question {
-        title,
-        category,
-        testCases,
-        description,
-        methodName
-    }
-*/
-
 const defaultQuestion = {
     title: "Reverse String",
     category: "String",

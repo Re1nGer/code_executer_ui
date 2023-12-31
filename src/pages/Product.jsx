@@ -9,7 +9,7 @@ const Product = () => {
     return (
         <div className={`flex justify-center min-h-[320px] gap-[50px]`}>
             <div className={'pl-[20px] text-white basis-[50%] flex justify-end'}>
-                <ProductLanding/>
+                <ProductLanding />
             </div>
             <div className={'flex-1 max-h-[700px] product__banner_container'}>
                 <div
